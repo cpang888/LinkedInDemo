@@ -33,8 +33,14 @@
    IN.Event.on(IN, "auth", getProfileData);
   }
 
+  $("#logout").on('click', function onclick() {
+    console.log("onclick");
+    logout();
+  })
+
   // Logout user
   function logout(){
+    console.log("LinkedIn logout");
     IN.User.logout(onLogout);
   }
 
@@ -76,6 +82,9 @@
  <body>
   <!-- LinkedIn signin button -->
    <script type="in/Login"></script>
+
+
+  <button type="button" id="logout">Logout</button>
 
   <table id='tableUser' style='display: none;'>
    <tr>
