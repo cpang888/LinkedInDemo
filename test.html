@@ -46,7 +46,7 @@
   function getProfileData() {
  
    IN.API.Profile("me").fields("first-name", "last-name", "email-address","picture-url",
-      "summary", "specialties", "industry").result(function (data) {
+      "summary", "specialties", "industry", "positions").result(function (data) {
     
     var userdata = data.values[0];
 
