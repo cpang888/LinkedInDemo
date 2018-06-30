@@ -42,6 +42,11 @@
           console.log("LinkedIn logout");
           IN.User.logout(onLogout);
         }
+
+        function onLogout(){
+          window.location = "/logout";
+          console.log('Logout successfully');
+        }
       }
 
       // $( "#logout" ).click(function() {
@@ -60,10 +65,10 @@
       //   IN.User.logout(onLogout);
       // }
 
-      function onLogout(){
-        window.location = "/logout";
-        console.log('Logout successfully');
-      }
+      // function onLogout(){
+      //   window.location = "/logout";
+      //   console.log('Logout successfully');
+      // }
 
       // Use the API call wrapper to request the member's basic profile data
       function getProfileData() {
