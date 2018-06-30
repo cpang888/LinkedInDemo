@@ -45,13 +45,15 @@
   // Use the API call wrapper to request the member's basic profile data
   function getProfileData() {
  
-   IN.API.Profile("me").fields("first-name", "last-name", "email-address","picture-url").result(function (data) {
+   IN.API.Profile("me").fields("first-name", "last-name", "email-address","picture-url",
+      "summary", "specialties", "industry").result(function (data) {
     
     var userdata = data.values[0];
 
     console.log(userdata);
   //   $.ajax({
-  //    url: "saveuser.php",
+  //   //  url: "saveuser.php",
+  //    url: "https://api.linkedin.com/v2/me",
   //    type: "post",
   //    data: {"social_type": "linkedin","fname": userdata.firstName,"lname": userdata.lastName,"email": userdata.emailAddress, "profile_image": userdata.pictureUrl },
   //    success: function(response){
