@@ -32,12 +32,22 @@
       function onLinkedInLoad() {
         console.log("onLinkedInLoad")
       IN.Event.on(IN, "auth", getProfileData);
+
+        $( "#logout" ).click(function() {
+          console.log("onclick");
+          logout();
+        });
+
+        function logout(){
+          console.log("LinkedIn logout");
+          IN.User.logout(onLogout);
+        }
       }
 
-      $( "#logout" ).click(function() {
-        console.log("onclick");
-        logout();
-      });
+      // $( "#logout" ).click(function() {
+      //   console.log("onclick");
+      //   logout();
+      // });
 
       // $("#logout").on('click', function onclick() {
       //   console.log("onclick");
@@ -45,12 +55,13 @@
       // })
 
       // Logout user
-      function logout(){
-        console.log("LinkedIn logout");
-        IN.User.logout(onLogout);
-      }
+      // function logout(){
+      //   console.log("LinkedIn logout");
+      //   IN.User.logout(onLogout);
+      // }
 
       function onLogout(){
+        window.location = "/logout";
         console.log('Logout successfully');
       }
 
