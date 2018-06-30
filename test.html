@@ -33,10 +33,15 @@
    IN.Event.on(IN, "auth", getProfileData);
   }
 
-  $("#logout").on('click', function onclick() {
+  $( "#logout" ).click(function() {
     console.log("onclick");
     logout();
-  })
+  });
+
+  // $("#logout").on('click', function onclick() {
+  //   console.log("onclick");
+  //   logout();
+  // })
 
   // Logout user
   function logout(){
