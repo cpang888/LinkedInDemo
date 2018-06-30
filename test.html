@@ -49,19 +49,20 @@
     
     var userdata = data.values[0];
 
-    $.ajax({
-     url: "saveuser.php",
-     type: "post",
-     data: {"social_type": "linkedin","fname": userdata.firstName,"lname": userdata.lastName,"email": userdata.emailAddress, "profile_image": userdata.pictureUrl },
-     success: function(response){
+    console.log(userdata);
+  //   $.ajax({
+  //    url: "saveuser.php",
+  //    type: "post",
+  //    data: {"social_type": "linkedin","fname": userdata.firstName,"lname": userdata.lastName,"email": userdata.emailAddress, "profile_image": userdata.pictureUrl },
+  //    success: function(response){
 
-      $('#tableUser').css('display','block');
-      $('#fullname').text( userdata.firstName + " " + userdata.lastName);
-      $('#email').text( userdata.emailAddress );
-      $('#profile_photo').attr( 'src',userdata.pictureUrl );
-      logout();
-     }
-   });
+  //     $('#tableUser').css('display','block');
+  //     $('#fullname').text( userdata.firstName + " " + userdata.lastName);
+  //     $('#email').text( userdata.emailAddress );
+  //     $('#profile_photo').attr( 'src',userdata.pictureUrl );
+  //     logout();
+  //    }
+  //  });
 
   }).error(function (data) {
     console.log(data);
