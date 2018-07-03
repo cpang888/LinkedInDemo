@@ -53,7 +53,7 @@
           method: "GET"
         }).then(function(response) {
             console.log(response);
-        }
+        });
 
       }).error(function (data) {
         console.log(data);
