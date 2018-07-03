@@ -1,8 +1,10 @@
   function start() {
+
+    IN.Event.on(IN, "auth", getProfileData);
+
     // Setup an event listener to make an API call once auth is complete
     function onLinkedInLoad() {
       console.log("onLinkedInLoad")
-      IN.Event.on(IN, "auth", getProfileData);
 
       $( "#logout" ).click(function() {
         console.log("onclick");
@@ -32,19 +34,19 @@
     // Use the API call wrapper to request the member's basic profile data
     function getProfileData() {
 
-    IN.API.Profile("me").fields("first-name", "last-name", "email-address","picture-url",
-        "summary", "specialties", "industry", "positions").result(function (data) {
-      
-      var userdata = data.values[0];
+      IN.API.Profile("me").fields("first-name", "last-name", "email-address","picture-url",
+          "summary", "specialties", "industry", "positions").result(function (data) {
+        
+        var userdata = data.values[0];
 
-      console.log(userdata);
+        console.log(userdata);
 
-    }).error(function (data) {
-      console.log(data);
-    });
+      }).error(function (data) {
+        console.log(data);
+      });
     }
   }
-  
+
   $(document).ready(function() {
     // when document is ready, call the start method
     start();
