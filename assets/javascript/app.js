@@ -46,6 +46,15 @@
 
         console.log(userdata);
 
+        var queryURL = "https://api.linkedin.com/v2/recommendedJobs?q=q=byMember";
+
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+            console.log(response);
+        }
+
       }).error(function (data) {
         console.log(data);
       });
