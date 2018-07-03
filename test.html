@@ -1,135 +1,69 @@
-
-<!-- <html>
-  <head>
-    <title>LinkedIn API Example</title>
-    <script type="text/javascript" src="https://platform.linkedin.com/in.js">
-      api_key: 862wmgm91fpn3x
-    </script>
-  </head>
-  <body>
-    <h1>LinkedIn API Example</h1>
-    <script type="in/Login">
-      Hello, <?js= firstName ?> <?js= lastName ?>.
-    </script>    
-  </body>
-</html> -->
-
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
- <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://platform.linkedin.com/in.js">
-   api_key: 862wmgm91fpn3x
-   authorize: true
-   onLoad: onLinkedInLoad
-  </script>
+<head>
+	<title>LinkedIndeed</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  <script type="text/javascript">
- 
-//  function start() {
-      // Setup an event listener to make an API call once auth is complete
-      function onLinkedInLoad() {
-        console.log("onLinkedInLoad")
-      IN.Event.on(IN, "auth", getProfileData);
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-        $( "#logout" ).click(function() {
-          console.log("onclick");
-          logout();
-        });
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- <script type="text/javascript"></script> -->
 
-        function logout(){
-          console.log("LinkedIn logout");
-          IN.User.logout(onLogout);
-        }
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-        function onLogout(){
-          // window.location = "/logout";
-          console.log('Logout successfully');
-        }
-      }
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script type="text/javascript" src="https://platform.linkedin.com/in.js">
+        api_key: 862wmgm91fpn3x
+        authorize: true
+        onLoad: onLinkedInLoad
+    </script>
+    <script src="assets/javascript/app.js" ></script>
 
-      // $( "#logout" ).click(function() {
-      //   console.log("onclick");
-      //   logout();
-      // });
+</head>
+<body>
 
-      // $("#logout").on('click', function onclick() {
-      //   console.log("onclick");
-      //   logout();
-      // })
+	<div class="container">
+	    <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">LinkedIndeed</h1>
+                <div class="form-group col-lg-6"">
+                <label for="formGroupExampleInput">Example label</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                </div>
+                <div class="form-group col-lg-6"">
+                <label for="formGroupExampleInput">Example label</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                </div>
+                <div class="form-group col-lg-6"">
+                <label for="formGroupExampleInput">Example label</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-      // Logout user
-      // function logout(){
-      //   console.log("LinkedIn logout");
-      //   IN.User.logout(onLogout);
-      // }
+    <table class="table">
+        <caption></caption>
+    <thead>
+        <tr>
+            <th scope="col">Job Title</th>
+            <th scope="col">Location</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>"test1"</td>
+            <td>"test2"</td>
+            <td>"test3"</td>
+        </tr>
+    </tbody>
+    </table>
 
-      // function onLogout(){
-      //   window.location = "/logout";
-      //   console.log('Logout successfully');
-      // }
+</script>
 
-      // Use the API call wrapper to request the member's basic profile data
-      function getProfileData() {
-    
-      IN.API.Profile("me").fields("first-name", "last-name", "email-address","picture-url",
-          "summary", "specialties", "industry", "positions").result(function (data) {
-        
-        var userdata = data.values[0];
-
-        console.log(userdata);
-      //   $.ajax({
-      //   //  url: "saveuser.php",
-      //    url: "https://api.linkedin.com/v2/me",
-      //    type: "post",
-      //    data: {"social_type": "linkedin","fname": userdata.firstName,"lname": userdata.lastName,"email": userdata.emailAddress, "profile_image": userdata.pictureUrl },
-      //    success: function(response){
-
-      //     $('#tableUser').css('display','block');
-      //     $('#fullname').text( userdata.firstName + " " + userdata.lastName);
-      //     $('#email').text( userdata.emailAddress );
-      //     $('#profile_photo').attr( 'src',userdata.pictureUrl );
-      //     logout();
-      //    }
-      //  });
-
-      }).error(function (data) {
-        console.log(data);
-      });
-    }
-// }
-
-// $(document).ready(function() {
-//   // when document is ready, call the start method
-//   start();
-
-// })
- </script>
- </head>
- <body>
-  <!-- LinkedIn signin button -->
-   <script type="in/Login"></script>
-
-
-  <button type="button" id="logout">Logout</button>
-
-  <table id='tableUser' style='display: none;'>
-   <tr>
-     <td>Name</td>
-     <td><span id='fullname'></span></td>
-   </tr>
-
-   <tr>
-    <td>Email</td>
-    <td><span id='email'></span></td>
-   </tr>
-
-   <tr>
-    <td>Profile image</td>
-    <td><img src='' width='32' height='32' id='profile_photo'></td>
-   </tr>
-
-  </table>
- </body>
+</body>
 </html>
