@@ -1,44 +1,52 @@
-// Setup an event listener to make an API call once auth is complete
-function onLinkedInLoad() {
-  console.log("onLinkedInLoad")
-  IN.Event.on(IN, "auth", getProfileData);
+  function start() {
+    // Setup an event listener to make an API call once auth is complete
+    function onLinkedInLoad() {
+      console.log("onLinkedInLoad")
+      IN.Event.on(IN, "auth", getProfileData);
 
-  $( "#logout" ).click(function() {
-    console.log("onclick");
-    logout();
-  });
+      $( "#logout" ).click(function() {
+        console.log("onclick");
+        logout();
+      });
 
-  function logout(){
-    console.log("LinkedIn logout");
-    IN.User.logout(onLogout);
+      function logout(){
+        console.log("LinkedIn logout");
+        IN.User.logout(onLogout);
+      }
+
+      function onLogout(){
+        // window.location = "/logout";
+        console.log('Logout successfully');
+      }
+    }
+
+    // Logout user
+    // function logout(){
+    //   IN.User.logout(onLogout);
+    // }
+
+    // function onLogout(){
+    //   console.log('Logout successfully');
+    // }
+
+    // Use the API call wrapper to request the member's basic profile data
+    function getProfileData() {
+
+    IN.API.Profile("me").fields("first-name", "last-name", "email-address","picture-url",
+        "summary", "specialties", "industry", "positions").result(function (data) {
+      
+      var userdata = data.values[0];
+
+      console.log(userdata);
+
+    }).error(function (data) {
+      console.log(data);
+    });
+    }
   }
-
-  function onLogout(){
-    // window.location = "/logout";
-    console.log('Logout successfully');
-  }
-}
-
-// Logout user
-// function logout(){
-//   IN.User.logout(onLogout);
-// }
-
-// function onLogout(){
-//   console.log('Logout successfully');
-// }
-
-// Use the API call wrapper to request the member's basic profile data
-function getProfileData() {
-
- IN.API.Profile("me").fields("first-name", "last-name", "email-address","picture-url",
-    "summary", "specialties", "industry", "positions").result(function (data) {
   
-  var userdata = data.values[0];
-
-  console.log(userdata);
-
-}).error(function (data) {
-  console.log(data);
-});
-}
+  $(document).ready(function() {
+    // when document is ready, call the start method
+    start();
+    
+  })
