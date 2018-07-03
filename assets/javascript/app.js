@@ -1,9 +1,3 @@
-/* <script type="text/javascript"> */
-<script type="text/javascript" src="https://platform.linkedin.com/in.js">
-api_key: 862wmgm91fpn3x
-authorize: true
-onLoad: onLinkedInLoad>
-
 // Setup an event listener to make an API call once auth is complete
 function onLinkedInLoad() {
   console.log("onLinkedInLoad")
@@ -47,5 +41,3 @@ function getProfileData() {
   console.log(data);
 });
 }
-
-</script>
