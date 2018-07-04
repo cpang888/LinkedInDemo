@@ -97,13 +97,21 @@
     //   console.log(response);
     // });
 
-    var queryURL = "https://cors-anywhere.herokuapp.com/https://jobs.search.gov/jobs/search.json?query=%Technology%+jobs+in+Atlanta,Georgia";
+    var queryURL = "https://jobs.search.gov/jobs/search.json?query=Technology+jobs+in+Atlanta,Georgia";
     // var queryURL = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
 
     $.ajax({
       url: queryURL,
       method: "GET",
-      contentType: "application/json"
+      contentType: "application/json",
+      dataType: 'jsonp',
+      success: function(data) {
+        console.log("success");
+        console.log(data);
+      },
+      error: function(err) {
+        console.log('Error', err);
+      }
     }).then(function(response) {
       console.log("gov jobs");
         var results = response.data;
