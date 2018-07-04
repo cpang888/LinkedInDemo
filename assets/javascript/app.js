@@ -5,21 +5,6 @@
     // Setup an event listener to make an API call once auth is complete
     function onLinkedInLoad() {
       console.log("onLinkedInLoad")
-
-      // $( "#logout" ).click(function() {
-      //   console.log("onclick");
-      //   logout();
-      // });
-
-      // function logout(){
-      //   console.log("LinkedIn logout");
-      //   IN.User.logout(onLogout);
-      // }
-
-      // function onLogout(){
-      //   // window.location = "/logout";
-      //   console.log('Logout successfully');
-      // }
     }
 
     // Logout user
@@ -59,35 +44,30 @@
         // });
 
 
-        // var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
-        // $.ajax({url: linkedInUrl,
-        //   type: 'GET',
-        //   contentType: "application/json",
-        //   // Access-Control-Allow-Origin: "GET",
-        //   // headers: header, /* pass your header object */
-        //   dataType: 'jsonp',
-        //   // headers: {},
-        //   success: function(data) {
-        //     console.log("success");
-        //     console.log(data);
-        //   },
-        //   error: function(err) {
-        //     console.log('Error', err);
-        //   },
-        // });
+        var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
+        $.ajax({url: linkedInUrl,
+          type: 'GET',
+          contentType: "application/json",
+          // Access-Control-Allow-Origin: "GET",
+          // headers: header, /* pass your header object */
+          dataType: 'jsonp',
+          // headers: {},
+          success: function(data) {
+            console.log("success");
+            console.log(data);
+          },
+          error: function(err) {
+            console.log('Error', err);
+          },
+        });
 
         // IN.API.Raw('/people/~:(recommendations-received)')
-        IN.API.Raw('/people/~:(id,positions)?format=json')
-				.method('GET')
-				.result(function(result){
-          console.log(result);
-        });
+        // IN.API.Raw('/people/~:(id,positions)?format=json')
+				// .method('GET')
+				// .result(function(result){
+        //   console.log(result);
+        // });
 
-        IN.API.RecommendedJobs()
-        .method('GET')
-				.result(function(result){
-          console.log(result);
-        });
         // IN.API.PeopleSearch()
         //   .fields("id", "firstName", "lastName","emailAddress","headline","industry","pictureUrl","positions",
         //   "summary","numConnections")
