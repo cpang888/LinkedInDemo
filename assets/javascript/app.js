@@ -90,7 +90,8 @@
 
     $.ajax({
       url: queryURL,
-      method: "GET"
+      method: "GET",
+      contentType: "application/json"
     }).then(function(response) {
       console.log("gov jobs");
         var results = response.data;
