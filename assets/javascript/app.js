@@ -46,7 +46,7 @@
 
         console.log(userdata);
 
-        var queryURL = "https://api.linkedin.com/v2/recommendedJobs?q=q=byMember";
+        var queryURL = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
 
         $.ajax({
           url: queryURL,
