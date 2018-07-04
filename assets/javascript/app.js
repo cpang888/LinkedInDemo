@@ -61,32 +61,48 @@
     });
 
     var githubURL = "https://jobs.github.com/positions?description=technology&location=atlanta";
-    $.ajax({url: githubURL,
-      type: 'GET',
-      contentType: "application/json",
-      dataType: 'jsonp',
-      success: function(data) {
-        console.log("success");
-        console.log(data);
-      },
-      error: function(err) {
-        console.log('Error', err);
-      }
+    $.ajax({
+      url: githubURL,
+      method: "GET"
     }).then(function(response) {
-      console.log(response);
+      console.log("github jobs");
+        var results = response.data;
+        console.log(response);
     });
+    // $.ajax({url: githubURL,
+    //   type: 'GET',
+    //   contentType: "application/json",
+    //   dataType: 'jsonp',
+    //   success: function(data) {
+    //     console.log("success");
+    //     console.log(data);
+    //   },
+    //   error: function(err) {
+    //     console.log('Error', err);
+    //   }
+    // }).then(function(response) {
+    //   console.log(response);
+    // });
 
     var queryURL = "https://jobs.search.gov/jobs/search.json?query=%Technology%+jobs+in+Atlanta,Georgia";
     // var queryURL = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
 
     $.ajax({
       url: queryURL,
-      method: "GET",
-      contentType: "application/json",
-      dataType: 'jsonp'
+      method: "GET"
     }).then(function(response) {
+      console.log("gov jobs");
+        var results = response.data;
         console.log(response);
     });
+    // $.ajax({
+    //   url: queryURL,
+    //   method: "GET",
+    //   contentType: "application/json",
+    //   dataType: 'jsonp'
+    // }).then(function(response) {
+    //     console.log(response);
+    // });
   }
 
   $(document).ready(function() {
