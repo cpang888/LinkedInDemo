@@ -82,6 +82,22 @@
 				.result(function(result){
           console.log(result);
         });
+
+        IN.API.PeopleSearch()
+          .fields("id", "firstName", "lastName","emailAddress","headline","industry","pictureUrl","positions",
+          "summary","numConnections")
+          .params({
+          "first-name": "Kendrick",
+          "last-name": "Williams",
+          "count":25
+          })
+          .result(function(result, metadata) {
+            console.log(result);
+          
+        });
+         
+        
+
         // var queryURL = "https://cors-anywhere.herokuapp.com/https://api.linkedin.com/v2/recommendedJobs?q=byMember";
         // var queryURL = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
 
