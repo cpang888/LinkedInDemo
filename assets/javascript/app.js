@@ -83,18 +83,23 @@
           console.log(result);
         });
 
-        IN.API.PeopleSearch()
-          .fields("id", "firstName", "lastName","emailAddress","headline","industry","pictureUrl","positions",
-          "summary","numConnections")
-          .params({
-          "first-name": "Kendrick",
-          "last-name": "Williams",
-          "count":25
-          })
-          .result(function(result, metadata) {
-            console.log(result);
-          
+        IN.API.RecommendedJobs()
+        .method('GET')
+				.result(function(result){
+          console.log(result);
         });
+        // IN.API.PeopleSearch()
+        //   .fields("id", "firstName", "lastName","emailAddress","headline","industry","pictureUrl","positions",
+        //   "summary","numConnections")
+        //   .params({
+        //   "first-name": "Kendrick",
+        //   "last-name": "Williams",
+        //   "count":25
+        //   })
+        //   .result(function(result, metadata) {
+        //     console.log(result);
+          
+        // });
          
         
 
