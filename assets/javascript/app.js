@@ -76,15 +76,20 @@
         //   },
         // });
 
-        // var queryURL = "https://cors-anywhere.herokuapp.com/https://api.linkedin.com/v2/recommendedJobs?q=byMember";
-        var queryURL = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
-        
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-            console.log(response);
+        IN.API.Raw('/people/~:(recommendations-received)')
+				.method('GET')
+				.result(function(result){
+          console.log(result);
         });
+        // var queryURL = "https://cors-anywhere.herokuapp.com/https://api.linkedin.com/v2/recommendedJobs?q=byMember";
+        // var queryURL = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
+
+        // $.ajax({
+        //   url: queryURL,
+        //   method: "GET"
+        // }).then(function(response) {
+        //     console.log(response);
+        // });
 
       }).error(function (data) {
         console.log(data);
