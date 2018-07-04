@@ -43,7 +43,8 @@
         //   console.log(data);
         // });
 
-        var govJobsUrl = "https://jobs.search.gov/jobs/search.json?query=%Technology%+jobs+in+" + userdata.positions[0].location.name;
+        console.log(userdata.positions[0]);
+        var govJobsUrl = "https://jobs.search.gov/jobs/search.json?query=%Technology%+jobs+in+Atlanta,Georgia";
 
         // var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
         $.ajax({url: govJobsUrl,
