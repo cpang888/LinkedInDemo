@@ -43,7 +43,7 @@
         //   console.log(data);
         // });
 
-        var govJobsUrl = "https://jobs.search.gov/jobs/search.json?query=jobs+in+" + userdata.positions.location.name;
+        var govJobsUrl = "https://jobs.search.gov/jobs/search.json?query=%Technology%+jobs+in+" + userdata.positions[0].location.name;
 
         // var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
         $.ajax({url: govJobsUrl,
