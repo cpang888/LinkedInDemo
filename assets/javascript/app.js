@@ -44,10 +44,10 @@
         // });
 
         console.log(userdata.positions[0]);
-        var govJobsUrl = "https://jobs.search.gov/jobs/search.json?query=%Technology%+jobs+in+Atlanta,Georgia";
+        // var govJobsUrl = "https://jobs.search.gov/jobs/search.json?query=%Technology%+jobs+in+Atlanta,Georgia";
 
-        // var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
-        $.ajax({url: govJobsUrl,
+        var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
+        $.ajax({url: linkedInUrl,
           type: 'GET',
           contentType: "application/json",
           // Access-Control-Allow-Origin: "GET",
@@ -72,21 +72,8 @@
 				// .result(function(result){
         //   console.log(result);
         // });
-
-        // IN.API.PeopleSearch()
-        //   .fields("id", "firstName", "lastName","emailAddress","headline","industry","pictureUrl","positions",
-        //   "summary","numConnections")
-        //   .params({
-        //   "first-name": "Kendrick",
-        //   "last-name": "Williams",
-        //   "count":25
-        //   })
-        //   .result(function(result, metadata) {
-        //     console.log(result);
-          
-        // });
          
-        var githubURL = "https://jobs.github.com/positions?description=full stack&location=atlanta";
+        var githubURL = "https://jobs.github.com/positions?description=technology&location=atlanta";
         $.ajax({url: githubURL,
           type: 'GET',
           contentType: "application/json",
