@@ -47,16 +47,18 @@
         console.log(userdata);
 
 
-        IN.API.PeopleSearch().fields("first-name", "last-name", "picture-url")
-        .params({"keywords": "princess", "count":10, "sort":"distance"})
-        .result(function (result) {
+        // IN.API.PeopleSearch().fields("first-name", "last-name", "picture-url")
+        // .params({"keywords": "princess", "count":10, "sort":"distance"})
+        // .result(function (result) {
           
-          // var userdata = data.values[0];
+        //   // var userdata = data.values[0];
 
-          console.log(JSON.stringify(result));
-        }).error(function (data) {
-          console.log(data);
-        });
+        //   console.log(JSON.stringify(result));
+        // }).error(function (data) {
+        //   console.log(data);
+        // });
+
+
         // var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
         // $.ajax({url: linkedInUrl,
         //   type: 'GET',
@@ -64,7 +66,7 @@
         //   // Access-Control-Allow-Origin: "GET",
         //   // headers: header, /* pass your header object */
         //   dataType: 'jsonp',
-        //   headers: {},
+        //   // headers: {},
         //   success: function(data) {
         //     console.log("success");
         //     console.log(data);
@@ -75,13 +77,14 @@
         // });
 
         // var queryURL = "https://cors-anywhere.herokuapp.com/https://api.linkedin.com/v2/recommendedJobs?q=byMember";
-
-        // $.ajax({
-        //   url: queryURL,
-        //   method: "GET"
-        // }).then(function(response) {
-        //     console.log(response);
-        // });
+        var queryURL = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
+        
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+            console.log(response);
+        });
 
       }).error(function (data) {
         console.log(data);
