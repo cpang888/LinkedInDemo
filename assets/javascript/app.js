@@ -51,6 +51,7 @@
           // Access-Control-Allow-Origin: "GET",
           // headers: header, /* pass your header object */
           dataType: 'jsonp',
+          async: false,
           // headers: {},
           success: function(data) {
             console.log("success");
