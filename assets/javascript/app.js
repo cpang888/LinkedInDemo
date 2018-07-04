@@ -46,22 +46,33 @@
 
         console.log(userdata);
 
-        var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
-        $.ajax({url: linkedInUrl,
-          type: 'GET',
-          contentType: "application/json",
-          // Access-Control-Allow-Origin: "GET",
-          // headers: header, /* pass your header object */
-          dataType: 'jsonp',
-          headers: {},
-          success: function(data) {
-            console.log("success");
-            console.log(data);
-          },
-          error: function(err) {
-            console.log('Error', err);
-          },
+
+        IN.API.PeopleSearch().fields("first-name", "last-name", "picture-url")
+        .params({"keywords": "princess", "count":10, "sort":"distance"})
+        .result(function (result) {
+          
+          // var userdata = data.values[0];
+
+          console.log(JSON.stringify(result));
+        }).error(function (data) {
+          console.log(data);
         });
+        // var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
+        // $.ajax({url: linkedInUrl,
+        //   type: 'GET',
+        //   contentType: "application/json",
+        //   // Access-Control-Allow-Origin: "GET",
+        //   // headers: header, /* pass your header object */
+        //   dataType: 'jsonp',
+        //   headers: {},
+        //   success: function(data) {
+        //     console.log("success");
+        //     console.log(data);
+        //   },
+        //   error: function(err) {
+        //     console.log('Error', err);
+        //   },
+        // });
 
         // var queryURL = "https://cors-anywhere.herokuapp.com/https://api.linkedin.com/v2/recommendedJobs?q=byMember";
 
