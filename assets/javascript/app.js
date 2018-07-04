@@ -31,7 +31,7 @@
 
         console.log(userdata);
 
-        console.log(userdata.positions[0]);
+        console.log(userdata.positions.values);
         // var govJobsUrl = "https://jobs.search.gov/jobs/search.json?query=%Technology%+jobs+in+Atlanta,Georgia";
 
 
@@ -60,7 +60,7 @@
       console.log(response);
     });
 
-    var githubURL = "https://jobs.github.com/positions?description=technology&location=atlanta";
+    var githubURL = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions?description=technology&location=atlanta";
     $.ajax({
       url: githubURL,
       method: "GET",
@@ -70,6 +70,18 @@
         var results = response.data;
         console.log(response);
     });
+
+    var githubURL = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json";
+    $.ajax({
+      url: githubURL,
+      method: "GET",
+      contentType: "application/json"
+    }).then(function(response) {
+      console.log("github jobs all");
+        var results = response.data;
+        console.log(response);
+    });
+
     // $.ajax({url: githubURL,
     //   type: 'GET',
     //   contentType: "application/json",
@@ -85,7 +97,7 @@
     //   console.log(response);
     // });
 
-    var queryURL = "https://jobs.search.gov/jobs/search.json?query=%Technology%+jobs+in+Atlanta,Georgia";
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://jobs.search.gov/jobs/search.json?query=%Technology%+jobs+in+Atlanta,Georgia";
     // var queryURL = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
 
     $.ajax({
