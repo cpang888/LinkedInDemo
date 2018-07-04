@@ -50,9 +50,11 @@
         $.ajax({url: linkedInUrl,
           type: 'GET',
           contentType: "application/json",
+          Access-Control-Allow-Origin: "GET",
           // headers: header, /* pass your header object */
           dataType: 'jsonp',
           success: function(data) {
+            console.log("success");
             console.log(data);
           },
           error: function(err) {
