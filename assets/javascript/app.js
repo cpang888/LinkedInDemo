@@ -76,7 +76,8 @@
         //   },
         // });
 
-        IN.API.Raw('/people/~:(recommendations-received)')
+        // IN.API.Raw('/people/~:(recommendations-received)')
+        IN.API.Raw('/people/~:(id,positions)?format=json')
 				.method('GET')
 				.result(function(result){
           console.log(result);
