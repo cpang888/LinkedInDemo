@@ -46,11 +46,11 @@
 
         console.log(userdata);
 
-        var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
+        var linkedInUrl = "https://cors-anywhere.herokuapp.com/https://api.linkedin.com/v2/recommendedJobs?q=byMember";
         $.ajax({url: linkedInUrl,
           type: 'GET',
           contentType: "application/json",
-          Access-Control-Allow-Origin: "GET",
+          // Access-Control-Allow-Origin: "GET",
           // headers: header, /* pass your header object */
           dataType: 'jsonp',
           success: function(data) {
