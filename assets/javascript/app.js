@@ -63,7 +63,8 @@
     var githubURL = "https://jobs.github.com/positions?description=technology&location=atlanta";
     $.ajax({
       url: githubURL,
-      method: "GET"
+      method: "GET",
+      contentType: "application/json"
     }).then(function(response) {
       console.log("github jobs");
         var results = response.data;
