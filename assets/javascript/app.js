@@ -62,7 +62,9 @@
           error: function(err) {
             console.log('Error', err);
           },
-        });
+        }).then(function(response) {
+          console.log(response);
+      });
 
         // IN.API.Raw('/people/~:(recommendations-received)')
         // IN.API.Raw('/people/~:(id,positions)?format=json')
@@ -84,14 +86,30 @@
           
         // });
          
-        
+        var githubURL = "https://jobs.github.com/positions?description=full stack&location=atlanta";
+        $.ajax({url: githubURL,
+          type: 'GET',
+          contentType: "application/json",
+          dataType: 'jsonp',
+          success: function(data) {
+            console.log("success");
+            console.log(data);
+          },
+          error: function(err) {
+            console.log('Error', err);
+          },
+        }).then(function(response) {
+          console.log(response);
+      });
 
         var queryURL = "https://jobs.search.gov/jobs/search.json?query=%Technology%+jobs+in+Atlanta,Georgia";
         // var queryURL = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
 
         $.ajax({
           url: queryURL,
-          method: "GET"
+          method: "GET",
+          contentType: "application/json",
+          dataType: 'jsonp'
         }).then(function(response) {
             console.log(response);
         });
