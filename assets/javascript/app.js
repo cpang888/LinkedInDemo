@@ -43,9 +43,10 @@
         //   console.log(data);
         // });
 
+        var govJobsUrl = "https://jobs.search.gov/jobs/search.json?query=jobs+in+" + userdata.positions.location.name;
 
-        var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
-        $.ajax({url: linkedInUrl,
+        // var linkedInUrl = "https://api.linkedin.com/v2/recommendedJobs?q=byMember";
+        $.ajax({url: govJobsUrl,
           type: 'GET',
           contentType: "application/json",
           // Access-Control-Allow-Origin: "GET",
